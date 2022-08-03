@@ -8,7 +8,7 @@
 <div id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Board Read Page</h1>
+			<h1 class="page-header">Board Modify Page</h1>
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>
@@ -16,11 +16,13 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">Board Read Page</div>
+				<div class="panel-heading">Board Modify Page</div>
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-lg-12">
 							<form role="form" action="/board/modify" method="post">
+								<input type="hidden" name="pageNum" value="<c:out value='${cri.pageNum }'/>">
+								<input type="hidden" name="amount" value="<c:out value='${cri.amount }'/>">
 								<div class="form-group">
 									<label>Bno</label> <input type="text" class="form-control"
 										name="bno" value="<c:out value='${board.bno }'/>"
@@ -61,7 +63,12 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var formObj = $("form");
-
+		var pageNum = '<c:out value="${cri.pageNum}"/>';
+		var amount = '<c:out value="${cri.amount}"/>';
+		
+		console.log(pageNum);
+		console.log(amount);
+		
 		$('button').on("click", function(e) {
 			e.preventDefault();
 			var oper = $(this).data("oper");
@@ -71,7 +78,13 @@
 				formObj.attr("action", "/board/remove");
 			} else if(oper ==='list') {
 				formObj.attr("action", "/board/list").attr("method", "get");
+				// form 테그에서 필요한 부분만 잠시 복사(clone)해서 보관해 두고 form태그 내의 모든 내용은 지워버림.
+				var pageNumTag = $("input[name='pageNum']").clone();
+				var amountTag = $("input[name='amount']").clone();
+				
 				formObj.empty();
+				formObj.append(pageNumTag);
+				formObj.append(amountTag);
 			}
 			formObj.submit();
 		});

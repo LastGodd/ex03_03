@@ -8,6 +8,7 @@ import org.zerock.domain.Criteria;
 public interface BoardService {
 
 	// public List<BoardVO> getList();
+	
 	public List<BoardVO> getList(Criteria cri);
 
 	public BoardVO get(Long bno);
@@ -18,4 +19,5 @@ public interface BoardService {
 
 	public boolean modify(BoardVO vo);
 
+	public int getTotal(Criteria cri);
 }
