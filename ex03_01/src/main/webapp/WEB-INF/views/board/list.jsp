@@ -16,7 +16,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">Board Tables
-					<button id="regBtn" type="button" class="btn btn-xs pull-right">Register New Board</button>
+					<button id="regBtn" type="button" class="btn btn-xs btn-primary pull-right">Register New Board</button>
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -45,7 +45,6 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<h4>${pageMaker }</h4>
 					<!-- /.table-responsive -->
 				</div>
 				<!-- /.panel-body -->
@@ -54,7 +53,7 @@
 					<ul class="pagination">
 						<c:if test="${pageMaker.prev }">
 							<li class="paginate_item">
-								<a class="page_link" href="#">Previous</a>
+								<a class="page_link" href="#">Prev</a>
 							</li>
 						</c:if>
 						
@@ -144,7 +143,7 @@
 			actionForm.attr("action", "/board/get");
 			actionForm.submit();
 		});
-
+		
 	});
 </script>
 

@@ -9,7 +9,7 @@ public class Criteria {
 	
 	public Criteria() {
 		this(1, 10);
-		// 1page당 10개씩
+		// 1page�떦 10媛쒖뵫
 	}
 	
 	public Criteria(int pageNum, int amount) {
