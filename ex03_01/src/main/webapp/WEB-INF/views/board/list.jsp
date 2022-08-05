@@ -23,6 +23,13 @@
 					<table width="100%"
 						class="table table-striped table-bordered table-hover">
 						<thead>
+							<colgroup>
+								<col style="width:1%">
+								<col style="width:10%">
+								<col style="width:10%">
+								<col style="width:10%">
+								<col style="width:10%">
+							</colgroup>
 							<tr>
 								<th>#</th>
 								<th>Title</th>
