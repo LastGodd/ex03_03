@@ -35,9 +35,9 @@ public class PageDTO {
 		this.endPage = realEnd <= endPage ? realEnd : endPage;
 
 		// 시작 페이지가 1보다 크면 이전 버튼이 true가 된다.
-		this.prev = cri.getPageNum() > 1;
+		this.prev = this.startPage > 1;
 		// 계산한 마지막 페이지보다 진짜 페이지가 크면 다음 버튼이 true가 된다.
-		this.next = this.endPage > cri.getPageNum();
+		this.next = this.endPage < realEnd;
 	}
 
 }

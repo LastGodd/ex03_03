@@ -59,19 +59,19 @@
 				<div class="pull-right">
 					<ul class="pagination">
 						<c:if test="${pageMaker.prev }">
-							<li class="paginate_item">
-								<a class="page_link" href="#">Prev</a>
+							<li class="page_item">
+								<a class="page_link" href="${pageMaker.startPage - 1}">Prev</a>
 							</li>
 						</c:if>
 						
 						<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
-							<li class="paginate_button ${pageMaker.cri.pageNum == num ? 'active' : '' }">
-								<a href="<c:out value='${num }'/>">${num}</a>
+							<li class="page_item ${pageMaker.cri.pageNum == num ? 'active' : '' }">
+								<a class="page_link" href="<c:out value='${num }'/>">${num}</a>
 							</li>
 						</c:forEach>
 						<c:if test="${pageMaker.next }">
-							<li class="paginate_item">
-								<a class="page_link" href="#">Next</a>
+							<li class="page_item">
+								<a class="page_link" href="${pageMaker.endPage + 1}">Next</a>
 							</li>
 						</c:if>
 					</ul>
@@ -137,7 +137,7 @@
 		
 		var actionForm = $("#actionForm");
 		
-		$(".paginate_button a").on("click", function(e){
+		$(".page_link").on("click", function(e){
 			e.preventDefault();
 			console.log('click');
 			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
